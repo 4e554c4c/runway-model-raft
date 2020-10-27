@@ -1,8 +1,8 @@
 # Model of Raft for Runway
 
-[![screenshot](screenshot.png)](https://runway.systems/?model=github.com/ongardie/runway-model-raft)
+[![screenshot](screenshot.png)](https://runway.systems/?model=github.com/4e554c4c/runway-model-raft)
 
-[try this model in Runway](https://runway.systems/?model=github.com/ongardie/runway-model-raft)
+[try this model in Runway](https://runway.systems/?model=github.com/4e554c4c/runway-model-raft)
 
 This is a model of [Raft](https://raft.github.io) for
 [Runway](https://github.com/salesforce/runway-browser). It includes a
