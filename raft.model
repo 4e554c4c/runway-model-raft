@@ -1,4 +1,4 @@
-/*
+/* vim: ft=runway
  * Copyright (c) 2016 Diego Ongaro.
  * Licensed under the MIT license.
  * For full license text, see LICENSE.md file in the repo root or
@@ -138,6 +138,9 @@ function quorum(serverSet: Set<ServerId>[ServerId]) -> Boolean {
 }
 
 function sendMessage(message: Message) {
+  if (servers[to].disconnected) {
+    return;
+  }
   message.sentAt = later(0);
   message.deliverAt = later(urandomRange(10000, 20000));
   push(network, message);
@@ -434,7 +437,7 @@ rule handleMessage for message in network {
   if past(message.deliverAt) {
     var from : ServerId = message.from;
     var to : ServerId = message.to;
-    if servers[to].state == Offline  || servers[from].disconnected || servers[to].disconnected {
+    if servers[to].state == Offline  || servers[to].disconnected {
       remove(network, message);
     } else {
       match message.payload {
